@@ -37,10 +37,10 @@ from detectron2.data.build import build_detection_train_loader
 from detectron2.utils.logger import setup_logger
 from torch.cuda.amp import GradScaler
 
-sys.path.insert(0, 'third_party/CenterNet2/')
-from centernet.config import add_centernet_config
+#sys.path.insert(0, 'third_party/CenterNet2/')
+#from centernet.config import add_centernet_config
 
-sys.path.insert(0, 'third_party/Deformable-DETR')
+# sys.path.insert(0, 'third_party/Deformable-DETR')
 from detic.config import add_detic_config
 from detic.data.custom_build_augmentation import build_custom_augmentation
 from detic.data.custom_dataset_dataloader import  build_custom_train_loader
@@ -111,7 +111,7 @@ def do_train(cfg, model, resume=False):
             cfg.MODEL.WEIGHTS, resume=resume).get("iteration", -1) + 1
     if not resume:
         start_iter = 0
-    max_iter = cfg.SOLVER.MAX_ITER if cfg.SOLVER.TRAIN_ITER < 0 else cfg.SOLVER.TRAIN_ITER
+    max_iter = cfg.SOLVER.MAX_ITER
 
     periodic_checkpointer = PeriodicCheckpointer(
         checkpointer, cfg.SOLVER.CHECKPOINT_PERIOD, max_iter=max_iter
@@ -203,7 +203,7 @@ def setup(args):
     Create configs and perform basic setups.
     """
     cfg = get_cfg()
-    add_centernet_config(cfg)
+    # add_centernet_config(cfg)
     add_detic_config(cfg)
     cfg.merge_from_file(args.config_file)
     cfg.merge_from_list(args.opts)

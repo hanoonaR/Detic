@@ -23,7 +23,7 @@ from timm.models.helpers import build_model_with_cfg
 from timm.models.registry import register_model
 from timm.models.resnet import ResNet, Bottleneck
 from timm.models.resnet import default_cfgs as default_cfgs_resnet
-from timm.models.convnext import ConvNeXt, default_cfgs, checkpoint_filter_fn
+# from timm.models.convnext import ConvNeXt, default_cfgs, checkpoint_filter_fn
 
 
 @register_model

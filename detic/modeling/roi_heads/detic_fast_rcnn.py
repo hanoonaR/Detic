@@ -144,7 +144,7 @@ class DeticFastRCNNOutputLayers(FastRCNNOutputLayers):
             'caption_weight': cfg.MODEL.ROI_BOX_HEAD.CAPTION_WEIGHT,
             'neg_cap_weight': cfg.MODEL.ROI_BOX_HEAD.NEG_CAP_WEIGHT,
             'add_image_box': cfg.MODEL.ROI_BOX_HEAD.ADD_IMAGE_BOX,
-            'debug': cfg.DEBUG or cfg.SAVE_DEBUG or cfg.IS_DEBUG,
+            'debug': cfg.IS_DEBUG,
             'prior_prob': cfg.MODEL.ROI_BOX_HEAD.PRIOR_PROB,
             'cat_freq_path': cfg.MODEL.ROI_BOX_HEAD.CAT_FREQ_PATH,
             'fed_loss_freq_weight': cfg.MODEL.ROI_BOX_HEAD.FED_LOSS_FREQ_WEIGHT,
