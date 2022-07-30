@@ -23,7 +23,7 @@ from detectron2.evaluation.coco_evaluation import COCOEvaluator
 from detectron2.structures import Boxes, BoxMode, pairwise_iou
 from detectron2.utils.file_io import PathManager
 from detectron2.utils.logger import create_small_table
-from ..data.datasets.coco_zeroshot import categories_seen, categories_unseen
+from ..data.datasets.coco_zeroshot import new_categories_seen, new_categories_unseen
 
 class CustomCOCOEvaluator(COCOEvaluator):
     def _derive_coco_results(self, coco_eval, iou_type, class_names=None):
@@ -60,8 +60,8 @@ class CustomCOCOEvaluator(COCOEvaluator):
         # precision has dims (iou, recall, cls, area range, max dets)
         assert len(class_names) == precisions.shape[2]
 
-        seen_names = set([x['name'] for x in categories_seen])
-        unseen_names = set([x['name'] for x in categories_unseen])
+        seen_names = set([x['name'] for x in new_categories_seen])
+        unseen_names = set([x['name'] for x in new_categories_unseen])
         results_per_category = []
         results_per_category50 = []
         results_per_category50_seen = []
